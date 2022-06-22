@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var app=angular.module("myapp",[]);
+            app.service("calc",function()
+            {
+                this.add=function(var1,var2)
+                {
+                    return parseInt(var1)+parseInt(var2);
+                }
+                this.subtract=function(var1,var2)
+                {
+                    return parseInt(var1)-parseInt(var2);
+                }
+                this.multiply=function(var1,var2)
+                {
+                    return parseInt(var1)*parseInt(var2);
+                }
+                this.divide=function(var1,var2)
+                {
+                    return parseInt(var1)/parseInt(var2);
+                }
+                this.modulus=function(var1,var2)
+                {
+                    return parseInt(var1)%parseInt(var2);
+                }
+            });
+            app.controller("cont",function($scope,calc)
+            {
+                $scope.calcu=function()
+                {
+                    switch($scope.operator)
+                    {
+                        case '+':
+                            $scope.result=calc.add($scope.var1,$scope.var2);
+                            break;
+                    case "-": 
+                        $scope.result=calc.subtract($scope.var1,$scope.var2);
+                        break;
+                    case "*": 
+                        $scope.result=calc.multiply($scope.var1,$scope.var2);
+                        break;
+                    case "/": 
+                        $scope.result=calc.divide($scope.var1,$scope.var2);
+                        break;
+                    case "%": 
+                        $scope.result=calc.modulus($scope.var1,$scope.var2);
+                        break;
+                    }
+                }
+            });
+            app.component("hello",
+            { template:'Arithmetic operation' });
+        </script>
+    </head>
+    <body>
+        <hello></hello>
+        <body ng-app="myapp" ng-controller="cont">
+            <div>
+                <form >
+                    <label>enter num 1</label>
+                    <br>
+                    <input type="number" ng-model="var1">
+                    <br>
+                    <label>enter num 2</label>
+                    <br>
+                    <input type="number" ng-model="var2">
+                    <br>
+                    <label>enter operator</label>
+                    <input type="operation" ng-model="operator">
+                    
+                    <input type="button" ng-click="calcu()" value="Result">
+    
+                </form>
+                <p>{{result}}</p>
+            </div>
+    </body>
+</html>

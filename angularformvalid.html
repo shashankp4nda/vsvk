@@ -1,0 +1,36 @@
+<title>form validation</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        var app = angular.module('myapp', []);
+        app.controller('myctrl',function($scope){
+	    $scope.uname='';
+	    $scope.pname='';
+	    $scope.u=/^[a-z_]*$/;
+	    $scope.p=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;
+});
+    </script>
+
+</head>
+<body>
+    <form name="myform" ng-app="myapp" ng-controller="myctrl" novalidate>
+        <input type="text" placeholder="username" id="uname" name="uname" ng-model="uname" ng-pattern="u" required />
+        <span style="color:red;" ng-show="myform.uname.$dirty && myform.uname.$invalid">
+            <span ng-show="myform.uname.$error.required">Username required</span>
+            <span ng-show="myform.uname.$error.pattern">Invalid username</span>
+
+        </span>
+        <br /><br />
+
+        <input type="text" placeholder="password" id="pname" name="pname" ng-model="pname" ng-pattern="p" required />
+        <span style="color:red;" ng-show="myform.pname.$dirty && myform.pname.$invalid">
+            <span ng-show="myform.pname.$error.required">password required</span>
+            <span ng-show="myform.pname.$error.pattern">password invalid</span>
+        </span>
+
+        <button ng-disabled="myform.uname.$dirty && myform.uname.$invalid || myform.pname.$dirty && myform.pname.$invalid">submit</button>
+
+    </form>
+
+</body>
+</html>

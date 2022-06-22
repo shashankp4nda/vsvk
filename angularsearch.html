@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var app=angular.module("myapp",[]);
+            app.controller("controller",function($scope){
+                
+                $scope.tables=[{
+                    Name: "Vibha",
+                    Mark: "40",
+                    Class:"12"
+
+
+                },
+                {
+                    Name: "Sayee",
+                    Mark: "42",
+                    Class:"10"
+
+
+                }];
+              
+            });
+            
+            
+        </script>
+    </head>
+    <body ng-app="myapp" ng-controller="controller">
+        <div>
+            <label>enter the name</label>
+            <input type="text" ng-model="test">
+            <div>
+                <p ng-repeat="x in tables| filter:test">{{x}}</p> 
+            </div>
+
+        </div>
+    </body>
+</html>

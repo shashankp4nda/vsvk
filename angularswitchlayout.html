@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+         var elements = document.getElementsByClassName("column");
+         var i;
+         function listView() {
+            for (i = 0; i < elements.length; i++) {
+                elements[i].style.width = "100%";
+            }
+        }
+        function gridView() {
+            for (i = 0; i < elements.length; i++) {
+                elements[i].style.width = "50%";
+            }
+        }
+    </script>
+    <style>
+         * {
+            box-sizing: border-box;
+        }
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+        }
+
+        /* Clear floats after the columns */
+        /* .row:after {
+            content: "";
+            display: table;
+            clear: both; */
+        /* } */
+    </style>
+</head>
+<body>
+    <h2>List View or Grid View</h2>
+
+    <p>Click on a button to choose list view or grid view.</p>
+
+    <div id="btnContainer">
+        <button class="btn" onclick="listView()"> List</button>
+        <button class="btn active" onclick="gridView()"> Grid</button>
+    </div>
+    <div class="row">
+        <div class="column">
+            <h2>Html </h2>
+            <p>The HyperText Markup Language or HTML is the standard markup language for documents designed to be
+                displayed in a web browser. </p>
+        </div>
+        <div class="column">
+            <h2>CSS</h2>
+            <p>Cascading Style Sheets is a style sheet language used for describing the presentation of a document
+                written in a markup language such as HTML.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <h2>JS</h2>
+            <p>JavaScript, often abbreviated JS, is a programming language that is one of the core technologies of the
+                World Wide Web, alongside HTML and CSS.</p>
+        </div>
+        <div class="column">
+            <h2>Angular Js</h2>
+            <p>AngularJS was a JavaScript-based open-source front-end web framework for developing single-page
+                applications.</p>
+        </div>
+    </div>
+</body>
+</html>

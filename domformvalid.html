@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <title>
+
+        </title>
+        <script>
+            function validate()
+            {
+                var a=document.getElementById("e");
+                var re=/^[a-z]+[.]*[a-z]+[0-9]*@[a-z]+\.[a-z]+$/;
+                if(a.value.match(re))
+                {
+                    alert("email valid");
+                }
+                else{
+                    alert("email invalid");
+                }
+                //var b=document.getElementById("pw")
+                //var pattern=/^
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <label>Enter Email</label>
+            <br>
+            <input type="text" name="email" id="e">
+            <br>
+            <input type="submit" value="Submit" onclick="validate()">
+            <br>
+            <label>password</label>
+            <br>
+            <input type="password" id="pw">
+        </form>
+        
+
+    </body>
+</html>

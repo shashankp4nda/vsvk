@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+        <script>
+            var app=angular.module("myapp",['ngAnimate']);
+
+        </script>
+    </head>
+    <body ng-app="myapp">
+        <div>
+            <p>check the box</p>
+            <input type="checkbox" ng-model="check">
+            <div class="animate" ng-hide="check">
+                <p>lalalalala</p>
+            </div>
+        </div>
+        <div>
+            <select ng-model="myvar">
+                <option value="a">a</option>
+                <option value="b">b</option>
+                <option value="c">c</option>
+            </select>
+            <div ng-switch="myvar">
+                <div ng-switch-when="a">
+                    <p>hello1</p>
+                </div>
+                <div ng-switch-when="b">
+                    <p>hello2</p>
+                </div>
+                <div ng-switch-when="c">
+                    <p>hello3</p>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
